@@ -53,3 +53,14 @@ Book2 = Library("Python", 12345678910, "Guido van Rossum", "Guido van Rossum", "
                 "Everyone", "4B1G0095", "4B1G0095@stust.edu.tw")
 print(Book2.__dict__)
 """
+import time
+import sys
+
+def typewriter_effect(text, speed=0.1):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(speed)
+
+# 使用示例
+typewriter_effect("Hello, ChatGPT! This is a typewriter effect demonstration.")
