@@ -1,11 +1,14 @@
+"""
 import time
 import sys
 
-def typewriter_effect(text, speed=0.01):
+# 模擬打字機效果
+def typewriter_effect(text, speed=0.02):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(speed)
+"""
 
 # 定義圖書館書籍類別
 class Library:
@@ -13,6 +16,7 @@ class Library:
     def __init__(self, book_name, book_id, publisher, author, publish_date,
                  lend_status, lend_date, return_deadline, book_place,
                  lend_person_name, stu_id, email):
+        
         # 將傳入的參數設定為物件的屬性
         self.book_name = book_name
         self.book_id = book_id
@@ -32,7 +36,11 @@ class Library:
         return f"Book name: {self.book_name}\nBook ID: {self.book_id}\nPublisher: {self.publisher}\nAuthor: {self.author}\nPubilsh date: {self.publish_date}\nLend Status: {self.lend_status}\nLend date: {self.lend_date}\nReturn deadline: {self.return_deadline}\nBook place: {self.book_place}\nLend_person_name: {self.lend_person_name}\nStudent ID: {self.stu_id}\nEmail: {self.email}\n"
 
 # 創建一個書籍物件 Book1
-Book1 = Library("Python", 12345678910, "Guido van Rossum", "Guido van Rossum", "1989-12",
+B1 = Library("Python", 12345678910, "Guido van Rossum", "Guido van Rossum", "1989-12",
+                "Lent", "1889-12-1", "20XX-XX-XX", "Everywhere on the internet",
+                "Everyone", "4B1G0095", "4B1G0095@stust.edu.tw")
+# 創建另一個書籍物件 Book2
+B2 = Library("Python", 12345678910, "Guido van Rossum", "Guido van Rossum", "1989-12",
                 "Lent", "1889-12-1", "20XX-XX-XX", "Everywhere on the internet",
                 "Everyone", "4B1G0095", "4B1G0095@stust.edu.tw")
 
@@ -40,25 +48,14 @@ Book1 = Library("Python", 12345678910, "Guido van Rossum", "Guido van Rossum", "
 choice = input("Please Enter the book you want to search:")
 
 # 判斷使用者輸入是否為 Book1
-if choice == "Book1":
+if choice == "B1":
     # 印出 Book1 的屬性
-    print(Book1)
+    print(B1)
     
-    # 載入圖片
-    from PIL import Image   
-
-    img = Image.open("C:\\Users\\owner\\Downloads\\Python-logo-notext.svg.png")
-
-    # 顯示圖片
-    img.show()
+# 判斷使用者輸入是否為 Book2
+elif choice == "B2":
+    # 印出 Book2 的物件的所有屬性和值
+    print(B2.__dict__)
 
 else:
     print("Sorry, book not found!")
-
-# 註解掉的部分，如果需要使用 Book2，可以取消註解並印出其屬性
-"""
-Book2 = Library("Python", 12345678910, "Guido van Rossum", "Guido van Rossum", "1989-12",
-                "Lent", "1889-12-1", "20XX-XX-XX", "Everywhere on the internet",
-                "Everyone", "4B1G0095", "4B1G0095@stust.edu.tw")
-print(Book2.__dict__)
-"""
